@@ -1,0 +1,15 @@
+class Solution {
+    // Function to convert a binary tree into its mirror tree.
+    void mirror(Node node) {
+        // Your code here
+   solve(node);
+    }
+     static  Node solve(Node node){
+         if(node==null) return null;
+         Node leftSide = solve(node.left);
+         Node rightSide = solve(node.right);
+         node.left = rightSide;
+         node.right = leftSide;
+         return node;
+     }
+}
