@@ -1,0 +1,25 @@
+######JAVA#######
+ public int[][] kClosest(int[][] points, int k) {
+        // Your code here
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a,b) -> Integer.compare(distance(b), distance(a)));
+        for(int[] series: points){
+            maxHeap.offer(series);
+            if(maxHeap.size()> k)
+            maxHeap.poll();
+        }
+        int[][] ans = new int[k][2];
+        int i = 0;
+        while(!maxHeap.isEmpty()){
+        ans[i] = maxHeap.poll();
+            i++;
+        }
+        return ans;
+     
+    
+    }
+    private int distance(int[]series){
+        return series[0]*series[0]+series[1]*series[1];
+    
+  
+    }
+}
