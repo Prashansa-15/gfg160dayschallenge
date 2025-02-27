@@ -1,0 +1,22 @@
+#########JAVA########
+class Solution {
+    // Function to merge K sorted linked list.
+    Node mergeKLists(List<Node> arr) {
+     PriorityQueue<Integer> listHeap = new PriorityQueue<>();
+     for(Node node: arr){
+         while(node!=null){
+         listHeap.offer(node.data);
+         node = node.next;}
+         
+     }
+     Node dummy = new Node(-1);
+     Node temp = dummy;
+     while(!listHeap.isEmpty()){
+         Node node = new Node(listHeap.poll());
+         temp.next = node;
+         temp = temp.next;
+     }
+     return dummy.next;
+        // Add your code here.
+    }
+}
