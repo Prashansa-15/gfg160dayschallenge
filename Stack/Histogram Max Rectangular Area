@@ -1,0 +1,21 @@
+######JAVA#######
+
+class Solution {
+    public static int getMaxArea(int arr[]) {
+        // your code here
+        int max = 0, n =arr.length;
+        int i = 0;
+        Stack<Integer> st = new Stack<>();
+        while(i<n || !st.isEmpty()){
+         if(i<n &&(arr[i]>=arr[st.peek()]|| st.isEmpty() )){
+             st.push(i++);
+         } 
+         else{
+             int height = arr[st.pop()];
+             int width = st.isEmpty()?i:i-st.peek()-1;
+             max = Math.max(max,height*width);
+         }
+        }
+        return max;
+    }
+}
