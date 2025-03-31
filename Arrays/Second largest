@@ -1,0 +1,20 @@
+// User function Template for Java
+
+class Solution {
+    public int getSecondLargest(int[] arr) {
+        // Code Here
+        if(arr.length<2) return -1;
+           int FirstL = -1;
+           int secondL = -1;
+           for(int i = 0;i<arr.length;i++){
+               if(arr[i]>FirstL && arr[i]>secondL){
+                   secondL = FirstL;
+                   FirstL = arr[i];
+               }else if(arr[i]>secondL && arr[i]!=FirstL){
+                   secondL = arr[i];
+               }
+           }
+           return secondL;
+      
+    }
+}
